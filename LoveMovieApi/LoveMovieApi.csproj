@@ -9,5 +9,9 @@
     <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LoveMovie.Models\LoveMovie.Models.csproj" />
+  </ItemGroup>
+
 
 </Project>
