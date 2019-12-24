@@ -26,6 +26,11 @@ namespace LoveMovieApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddHttpClient();
+            services.Configure<AppSettings>(Configuration);
+            services.AddMemoryCache();
+
+            services.AddTransient<TmdbApiClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
