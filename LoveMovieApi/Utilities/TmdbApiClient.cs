@@ -34,8 +34,7 @@ namespace LoveMovieApi
             var httpResponse = await httpClient.GetAsync(_appSettings.TmdbApiBaseUrl + url);
             httpResponse.EnsureSuccessStatusCode();
             var json = await httpResponse.Content.ReadAsStringAsync();
-            var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
-            return JsonSerializer.Deserialize<TResult>(json, options);
+            return JsonSerializer.Deserialize<TResult>(json);
         }
 
     }
