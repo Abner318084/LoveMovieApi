@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace LoveMovie.Models.TMDB
 {
-    public class GetPopularMoviesRequest : IHttpGetRequest
+    public class GetPopularMoviesRequest : HttpGetRequest
     {
         [JsonPropertyName("language")]
         public string Language { get; set; }
