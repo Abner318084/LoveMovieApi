@@ -5,6 +5,7 @@ namespace LoveMovie.Models
     public static class TmdbApiUrl
     {
         public const string Get_Popular = "/movie/popular";
+        public const string Get_Discover = "/discover/movie";
     }
 
     public static class CacheKeys

@@ -22,5 +22,11 @@ namespace LoveMovieApi.Controllers
             return await _tmdbApiClient.GetAsync<GetPopularMoviesResponse>(TmdbApiUrl.Get_Popular, request);
         }
 
+        [HttpGet("Discover")]
+        public async Task<ActionResult<DiscoverMoviesResponse>> DiscoverAsync([FromQuery]DiscoverMoviesRequest request)
+        {
+            return await _tmdbApiClient.GetAsync<DiscoverMoviesResponse>(TmdbApiUrl.Get_Discover, request);
+        }
+
     }
 }
