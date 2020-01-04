@@ -1,4 +1,4 @@
-﻿using LoveMovie.Models;
+﻿using LoveMovie;
 using LoveMovie.Models.TMDB;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

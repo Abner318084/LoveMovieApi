@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoveMovie.Models
+namespace LoveMovie
 {
     public static class TmdbApiUrl
     {
