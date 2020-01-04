@@ -1,6 +1,5 @@
 ﻿using LoveMovie.Models;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.IO;
 using System.Net.Http;
