@@ -31,10 +31,12 @@ namespace LoveMovieApi
         {
             var httpClient = _httpClientFactory.CreateClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiReadAccessToken);
-            var httpResponse = await httpClient.GetAsync(_appSettings.TmdbApiBaseUrl + url + request.ToQueryString());
-            httpResponse.EnsureSuccessStatusCode();
-            var json = await httpResponse.Content.ReadAsStringAsync();
-            return JsonSerializer.Deserialize<TResult>(json);
+            using (var httpResponse = await httpClient.GetAsync(_appSettings.TmdbApiBaseUrl + url + request.ToQueryString())) 
+            {
+                httpResponse.EnsureSuccessStatusCode();
+                var json = await httpResponse.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<TResult>(json);
+            }                
         }
 
     }
