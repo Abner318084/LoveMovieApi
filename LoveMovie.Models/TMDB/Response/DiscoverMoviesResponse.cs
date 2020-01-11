@@ -3,13 +3,13 @@ using System.Text.Json.Serialization;
 
 namespace LoveMovie.Models.TMDB
 {
-    public class DiscoverMoviesResponse : ITmdbPagedList<DiscoverMoviesResult>
+    public class DiscoverMoviesResponse : ITmdbPagedList<DiscoverMoviesResponseItem>
     {
         [JsonPropertyName("page")]
         public int Page { get; set; }
 
         [JsonPropertyName("results")]
-        public List<DiscoverMoviesResult> Results { get; set; }
+        public List<DiscoverMoviesResponseItem> Results { get; set; }
 
         [JsonPropertyName("total_results")]
         public int TotalResults { get; set; }
@@ -18,7 +18,7 @@ namespace LoveMovie.Models.TMDB
         public int TotalPages { get; set; }
     }
 
-    public class DiscoverMoviesResult
+    public class DiscoverMoviesResponseItem
     {
         [JsonPropertyName("popularity")]
         public double Popularity { get; set; }
