@@ -27,7 +27,7 @@ namespace LoveMovieApi
                 entry => File.ReadAllText(@"C:\TMDB\TmdbApiReadAccessToken.txt"));
         }
 
-        public async Task<TResult> GetAsync<TResult>(string url, HttpGetRequest request)
+        public async Task<TResult> GetAsync<TResult>(string url, IHttpGetRequest request)
         {
             var httpClient = _httpClientFactory.CreateClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _apiReadAccessToken);
