@@ -8,5 +8,7 @@ namespace LoveMovieApi
     public class AppSettings
     {
         public string TmdbApiBaseUrl { get; set; }
+
+        public string TmdbApiReadAccessTokenFilePath { get; set; }
     }
 }

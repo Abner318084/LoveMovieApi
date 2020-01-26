@@ -1,5 +1,6 @@
 ﻿using LoveMovie;
 using LoveMovie.Models;
+using LoveMovie.Models.Extension;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 using System.IO;
@@ -14,7 +15,6 @@ namespace LoveMovieApi
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly AppSettings _appSettings;
-        private readonly IMemoryCache _memoryCache;
         private readonly string _apiReadAccessToken;
 
         public TmdbApiClient(IHttpClientFactory httpClientFactory, IOptionsSnapshot<AppSettings> options, 
@@ -22,9 +22,9 @@ namespace LoveMovieApi
         {
             this._httpClientFactory = httpClientFactory;
             this._appSettings = options.Value;
-            this._memoryCache = memoryCache;
-            this._apiReadAccessToken = _memoryCache.GetOrCreate(CacheKeys.TmdbApiReadAccessToken, 
-                entry => File.ReadAllText(@"C:\TMDB\TmdbApiReadAccessToken.txt"));
+            this._apiReadAccessToken = memoryCache.GetOrCreate(
+                CacheKeys.TmdbApiReadAccessToken, 
+                entry => File.ReadAllText(this._appSettings.TmdbApiReadAccessTokenFilePath));
         }
 
         public async Task<TResult> GetAsync<TResult>(string url, IHttpGetRequest request)
